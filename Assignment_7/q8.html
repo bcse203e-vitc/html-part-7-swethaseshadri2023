@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sort Array</title>
+  <script>
+    function bubbleSort(arr) {
+      let len = arr.length;
+      for (let i = 0; i < len; i++) {
+        for (let j = 0; j < len - i - 1; j++) {
+          if (arr[j] > arr[j + 1]) {
+            let temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+          }
+        }
+      }
+      return arr;
+    }
+
+    function displaySortedArray() {
+      let inputArray = document.getElementById('arrayInput').value.split(',').map(Number);
+      let sortedArray = bubbleSort(inputArray);
+      document.getElementById('sortedArrayOutput').innerText = 'Sorted Array: ' + sortedArray.join(', ');
+    }
+  </script>
+</head>
+<body>
+  <h2>Sort an Array Without Using the sort() Method</h2>
+  <input type="text" id="arrayInput" placeholder="Enter numbers separated by commas">
+  <button onclick="displaySortedArray()">Sort Array</button>
+  <p id="sortedArrayOutput">Sorted Array: </p>
+</body>
+</html>

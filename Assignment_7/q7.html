@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Second Largest Number</title>
+  <script>
+    function findSecondLargest(arr) {
+      let uniqueArr = [...new Set(arr)];
+      uniqueArr.sort((a, b) => b - a);
+      return uniqueArr[1];
+    }
+
+    function displaySecondLargest() {
+      let inputArray = document.getElementById('arrayInput').value.split(',').map(Number);
+      let secondLargest = findSecondLargest(inputArray);
+      document.getElementById('secondLargestOutput').innerText = 'Second Largest: ' + secondLargest;
+    }
+  </script>
+</head>
+<body>
+  <h2>Find the Second Largest Number in an Array</h2>
+  <input type="text" id="arrayInput" placeholder="Enter numbers separated by commas">
+  <button onclick="displaySecondLargest()">Find Second Largest</button>
+  <p id="secondLargestOutput">Second Largest: </p>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Character Counter</title>
+  <script>
+    function countCharacters() {
+      let text = document.getElementById('text').value;
+      document.getElementById('charCount').innerText = 'Characters: ' + text.length;
+      document.getElementById('wordCount').innerText = 'Words: ' + text.trim().split(/\s+/).length;
+    }
+  </script>
+</head>
+<body>
+  <h2>Character Counter</h2>
+  <textarea id="text" oninput="countCharacters()"></textarea>
+  <p id="charCount">Characters: 0</p>
+  <p id="wordCount">Words: 0</p>
+</body>
+</html>

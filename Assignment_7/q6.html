@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find Duplicates</title>
+  <script>
+    function findDuplicates(arr) {
+      let duplicates = [];
+      let seen = new Set();
+      arr.forEach(item => {
+        if (seen.has(item) && !duplicates.includes(item)) {
+          duplicates.push(item);
+        }
+        seen.add(item);
+      });
+      return duplicates;
+    }
+
+    function displayDuplicates() {
+      let inputArray = document.getElementById('arrayInput').value.split(',').map(Number);
+      let duplicates = findDuplicates(inputArray);
+      document.getElementById('duplicatesOutput').innerText = 'Duplicates: ' + duplicates.join(', ');
+    }
+  </script>
+</head>
+<body>
+  <h2>Find Duplicates in an Array</h2>
+  <input type="text" id="arrayInput" placeholder="Enter numbers separated by commas">
+  <button onclick="displayDuplicates()">Find Duplicates</button>
+  <p id="duplicatesOutput">Duplicates: </p>
+</body>
+</html>
